@@ -1,7 +1,7 @@
 "use strict";
 require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
-const {users}=require('./users-model')
+const users=require('./user.model')
 const POSTGRESS_URI =
   process.env.NODE_ENV === "test"
     ? "sqlite::memory:"

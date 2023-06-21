@@ -2,6 +2,7 @@ const express = require('express');
 const { Users } = require('./models/index');
 const bcrypt = require('bcrypt');
 const basic = require('./middleware/basic');
+const bearer = require('./middleware/bearer');
 
 const router=express.Router()
 
@@ -17,7 +18,15 @@ const record=await Users.create({
 })
 res.status(201).json(record)
 })
+router.get('/secretstuff',bearer,(req,res)=>{
+res.json({
 
+    'message':'you can access this route',
+    'user':req.user
+})
+
+
+})
 
 router.post('/signin',basic,(req,res)=>{
 
